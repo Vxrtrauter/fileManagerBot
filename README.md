@@ -1,5 +1,5 @@
 # fileManagerBot
-FileManager Bot for the FarmerLibary
+FileManager Bot for the FarmerLibrary
 
 
 
