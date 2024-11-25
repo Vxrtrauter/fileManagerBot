@@ -11,16 +11,16 @@ FileManager Bot for the FarmerLibrary
 
 
 ## Commands:
-- /upload [filetype] [file] - uploads a file to the specified forum channel
-- /bulkupload [filetype] [github repo] - pulls all jarfiles and uploads them
-- /clearduplicate [channel] - clears all threads that have the same name
+- `/upload [filetype] [file]` - uploads a file to the specified forum channel
+- `/bulkupload [filetype] [github repo]` - pulls all jarfiles and uploads them
+- `/clearduplicate [channel]` - clears all threads that have the same name
 
 ## Config:
 The Config File contains a couple of Values:
-- DISCORD_TOKEN - Your Discord Bot Token
-- GOFILE_API_KEY - Your GoFile API Key
-- GITHUB_TOKEN - Your GitHub Token
-- REQUIRED_ROLE_ID - ID of the Role that gives perms to use Bot
+- `DISCORD_TOKEN` - Your Discord Bot Token
+- `GOFILE_API_KEY` - Your GoFile API Key
+- `GITHUB_TOKEN` - Your GitHub Token
+- `REQUIRED_ROLE_ID` - ID of the Role that gives perms to use Bot
 
 ### Channel Configs:
 - Plugin - ID of your Plugin forum channel
