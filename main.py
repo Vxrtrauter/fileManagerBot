@@ -1,5 +1,3 @@
-# main.py
-
 import discord
 from discord.ext import commands
 import os
@@ -10,17 +8,16 @@ from commands.clearduplicate import clearduplicate
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix='!', intents=intents) # idk why i left this prefix here, prob. gonna remove it soon. 
 
 async def cleanup_jar_files():
-    """Delete all JAR files in the bot's directory."""
     jar_files_deleted = 0
     for filename in os.listdir('.'): 
         if filename.endswith('.jar'):
             os.remove(filename)
             jar_files_deleted += 1
             print(f"Deleted JAR file: {filename}") 
-
+# this function will clean all jarfiles in the bots directory on startup. this may be removed in the future as i'm probably gonna update bulkupload.py to deleting the files automatically. 
     return jar_files_deleted
 
 async def update_status():
@@ -30,11 +27,11 @@ async def update_status():
 
 @bot.event
 async def on_ready():
-    print(f'{bot.user} has connected to Discord!')
+    print(f'{bot.user} connected to discord')
     
 
     deleted_count = await cleanup_jar_files()
-    print(f"Cleanup complete. Deleted {deleted_count} JAR files.") 
+    print(f"files have been cleaned. {deleted_count} jarfiles removed. ") 
     
     try:
         synced = await bot.tree.sync()
@@ -54,7 +51,7 @@ async def on_thread_delete(thread):
     if isinstance(thread.parent, discord.ForumChannel):
         await update_status()
 
-
+# register the commands
 bot.tree.add_command(upload)
 bot.tree.add_command(bulkupload)
 bot.tree.add_command(clearduplicate) 
