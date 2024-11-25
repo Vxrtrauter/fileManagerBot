@@ -41,7 +41,7 @@ Add the following code to your Command to prevent unwanted usage of your Bot
 ```py
 if not await has_required_role(interaction.user):
     await interaction.followup.send("You do not have permission to execute this command.")
-    return```
+    return
 
 
 
