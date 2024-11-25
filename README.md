@@ -17,3 +17,21 @@ FileManager Bot for the FarmerLibrary
 
 ## Config:
 The Config File contains a couple of Values:
+- DISCORD_TOKEN - Your Discord Bot Token
+- GOFILE_API_KEY - Your GoFile API Key
+- GITHUB_TOKEN - Your GitHub Token
+- REQUIRED_ROLE_ID - ID of the Role that gives perms to use Bot
+
+### Channel Configs:
+- Plugin - ID of your Plugin forum channel
+- Client - ID of your Client forum channel
+- Mod - ID of your Mod forum channel
+- Resourcepack - ID of your Resourcepack forum channel
+
+
+
+
+
+
+
+
