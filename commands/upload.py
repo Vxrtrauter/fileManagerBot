@@ -41,12 +41,12 @@ async def upload_to_gofile(file_path):
 async def has_required_role(member: discord.Member) -> bool:
     return any(role.id == config.REQUIRED_ROLE_ID for role in member.roles)
 
-@app_commands.command(name="upload", description="Upload a file to GoFile and create a forum thread")
+@app_commands.command(name="upload", description="upload a file to GoFile and create a forum thread")
 @app_commands.choices(category=[
-    app_commands.Choice(name="Plugin", value="plugin"),
-    app_commands.Choice(name="Client", value="client"),
-    app_commands.Choice(name="Mod", value="mod"),
-    app_commands.Choice(name="Resourcepack", value="resourcepack")
+    app_commands.Choice(name="plugin", value="plugin"),
+    app_commands.Choice(name="client", value="client"),
+    app_commands.Choice(name="mod", value="mod"),
+    app_commands.Choice(name="resourcepack", value="resourcepack")
 ])
 async def upload(interaction: discord.Interaction, category: app_commands.Choice[str], file: discord.Attachment):
     await interaction.response.defer()
@@ -68,13 +68,13 @@ async def upload(interaction: discord.Interaction, category: app_commands.Choice
 
         forum_channel = interaction.guild.get_channel(forum_channel_id)
         if not forum_channel:
-            raise ValueError(f"Could not find forum channel for category: {category.value}")
+            raise ValueError(f"could not find forum channel: {category.value}")
 
         thread_name = os.path.splitext(file.filename)[0]
         content = f"Download link: {gofile_url}" if gofile_url else "File uploaded to Discord only"
         thread = await forum_channel.create_thread(name=thread_name, content=content, file=discord.File(file_path))
 
-        await interaction.followup.send(f"File uploaded successfully.")
+        await interaction.followup.send(f"file uploaded successfully.")
 
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {str(e)}")
