@@ -51,7 +51,7 @@ async def has_required_role(member: discord.Member) -> bool:
 async def upload(interaction: discord.Interaction, category: app_commands.Choice[str], file: discord.Attachment):
     await interaction.response.defer()
 
-    # Check if the user has the required role before proceeding
+
     if not await has_required_role(interaction.user):
         await interaction.followup.send("You do not have permission to execute this command.")
         return
