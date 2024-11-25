@@ -14,3 +14,6 @@ FileManager Bot for the FarmerLibrary
 - /upload [filetype] [file] - uploads a file to the specified forum channel
 - /bulkupload [filetype] [github repo] - pulls all jarfiles and uploads them
 - /clearduplicate [channel] - clears all threads that have the same name
+
+## Config:
+The Config File contains a couple of Values:
