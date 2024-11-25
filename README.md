@@ -31,9 +31,9 @@ The Config File contains a couple of Values:
 ## Add new Commands:
 ### Main File: 
 - In the Main file, import
-’from commands.fileName import command’
+`from commands.fileName import command`
 - Above the Bot Login, add
-bot.tree.add_command(command) 
+`bot.tree.add_command(command)`
 - Make sure to replace commane and fileName with the correct command and fileName
 
 
