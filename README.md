@@ -43,6 +43,12 @@ if not await has_required_role(interaction.user):
     await interaction.followup.send("You do not have permission to execute this command.")
     return
 ```
+(make sure to place it correctly)
+
+## To-Do
+- Add different filetype support for Bulkdownload (example: option "client" downloads jars and jsons)
+- Add basic moderation commands
+- Rework file structure
 
 
 
