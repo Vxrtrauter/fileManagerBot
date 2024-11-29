@@ -8,7 +8,7 @@ from commands.clearduplicate import clearduplicate
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents) # idk why i left this prefix here, prob. gonna remove it soon. 
+bot = commands.Bot(command_prefix='?', intents=intents) 
 
 async def cleanup_jar_files():
     jar_files_deleted = 0
@@ -23,7 +23,7 @@ async def cleanup_jar_files():
 async def update_status():
     total_threads = sum(len(channel.threads) for channel in bot.get_all_channels() if isinstance(channel, discord.ForumChannel))
     activity = discord.Activity(type=discord.ActivityType.watching, name=f"{total_threads} Resources")
-    await bot.change_presence(activity=activity)
+    await bot.change_presence(activity=activity) # this is the bot's activity and it counts the total threads on the server
 
 @bot.event
 async def on_ready():

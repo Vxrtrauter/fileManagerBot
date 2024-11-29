@@ -7,13 +7,15 @@ import config
 async def get_gofile_server():
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.get('https://api.gofile.io/getServer') as response:
+            async with session.get('https://api.gofile.io/servers') as response:
                 if response.status == 200:
                     data = await response.json()
-                    return data['data']['server']
+                    if data['status'] == 'ok' and data['data']['servers']:
+                        return data['data']['servers'][0]['name']
     except Exception as e:
         print(f"Error getting GoFile server: {str(e)}")
     return None
+
 
 async def upload_to_gofile(file_path):
     server = await get_gofile_server()
@@ -50,7 +52,6 @@ async def has_required_role(member: discord.Member) -> bool:
 ])
 async def upload(interaction: discord.Interaction, category: app_commands.Choice[str], file: discord.Attachment):
     await interaction.response.defer()
-
 
     if not await has_required_role(interaction.user):
         await interaction.followup.send("You do not have permission to execute this command.")

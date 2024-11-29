@@ -46,9 +46,10 @@ if not await has_required_role(interaction.user):
 (make sure to place it correctly)
 
 ## To-Do
-- Add different filetype support for Bulkdownload (example: option "client" downloads jars and jsons)
+- ~~Add different filetype support for Bulkdownload (example: option "client" downloads jars and jsons)~~
 - Add basic moderation commands
 - Rework file structure
+- Fix GoFile Upload on `/bulkupload` command (`Error uploading to GoFile: expected str, bytes or os.PathLike object, not BytesIO`)
 
 
 
