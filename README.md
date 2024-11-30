@@ -50,7 +50,7 @@ if not await has_required_role(interaction.user):
 - Add basic moderation commands
 - Rework file structure
 - Fix GoFile Upload on `/bulkupload` command (`Error uploading to GoFile: expected str, bytes or os.PathLike object, not BytesIO`)
-
+- Add `/stop` command to stop bulkuploads
 
 
 
