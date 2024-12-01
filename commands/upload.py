@@ -48,7 +48,11 @@ async def has_required_role(member: discord.Member) -> bool:
     app_commands.Choice(name="plugin", value="plugin"),
     app_commands.Choice(name="client", value="client"),
     app_commands.Choice(name="mod", value="mod"),
-    app_commands.Choice(name="resourcepack", value="resourcepack")
+    app_commands.Choice(name="resourcepack", value="resourcepack"),
+    app_commands.Choice(name="client_mods", value="client_mods"),
+    app_commands.Choice(name="plugin_src", value="plugin_src"),
+    app_commands.Choice(name="client_src", value="client_src"),
+    app_commands.Choice(name="other_mc_stuff", value="other_mc_stuff")
 ])
 async def upload(interaction: discord.Interaction, category: app_commands.Choice[str], file: discord.Attachment):
     await interaction.response.defer()
