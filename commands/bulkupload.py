@@ -71,11 +71,21 @@ async def scan_repository_for_files(owner, repo_name, filetype):
     print(f"Total files found: {len(files)}")
     return files
 
-async def check_existing_threads(channel):
+async def check_existing_threads(channel: discord.ForumChannel):
+    """
+    Collect all threads (active and public archived) and group them by name.
+    """
     existing_threads = {}
-    threads = channel.threads
-    for thread in threads:
-        existing_threads[thread.name] = thread.id
+    active_threads = channel.threads
+    public_archived = []
+    async for thread in channel.archived_threads(): 
+        public_archived.append(thread)
+    all_threads = active_threads + public_archived
+    for thread in all_threads:
+        if thread.name not in existing_threads:
+            existing_threads[thread.name] = []
+        existing_threads[thread.name].append(thread)
+
     return existing_threads
 
 async def has_required_role(member: discord.Member) -> bool:
